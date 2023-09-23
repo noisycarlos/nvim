@@ -44,8 +44,15 @@ vim.keymap.set("t", "<C-m>m", "<C-\\><C-n><C-w>h", { silent = true, noremap = tr
 vim.keymap.set("t", "<C-n>n", "<C-\\><C-n><C-w>j", { silent = true, noremap = true })
 vim.keymap.set("t", "<C-e>e", "<C-\\><C-n><C-w>k", { silent = true, noremap = true })
 vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = true })
+vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
 -- Quality of life
+vim.api.nvim_set_keymap("n", "<M-n>", '"zdd"zp', { noremap = true })
+vim.api.nvim_set_keymap("n", "<M-e>", '"zddk"zP', { noremap = true })
+
+vim.api.nvim_set_keymap("x", "<M-e>", "dkPV", { noremap = true })
+vim.api.nvim_set_keymap("x", "<M-n>", "dpV", { noremap = true })
+
 vim.api.nvim_set_keymap("n", "..", "o<Esc>k", { noremap = true })
 vim.api.nvim_set_keymap("n", ",,", "O<Esc>j", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
