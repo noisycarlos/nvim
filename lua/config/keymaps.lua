@@ -51,6 +51,9 @@ vim.api.nvim_set_keymap("n", ",,", "O<Esc>j", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
 
+--Close buffer without exiting
+vim.api.nvim_set_keymap("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", { noremap = true })
+
 --Config files
 vim.api.nvim_set_keymap("n", "<leader>cc", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>cx", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
