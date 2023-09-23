@@ -9,4 +9,8 @@ return {
       -- stages = "static",
     },
   },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    enabled = false,
+  },
 }
