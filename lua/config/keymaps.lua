@@ -62,19 +62,17 @@ vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", { noremap = true })
 
 --Config files
-vim.api.nvim_set_keymap("n", "<leader>cc", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>cx", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
---
---Vim Config Shortcuts
-vim.api.nvim_set_keymap("n", "<leader>cc", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>cx", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>so", ":so %<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>so", ":so %<CR>", { noremap = true })
 
 -- Frequent Projects
-vim.api.nvim_set_keymap("n", "<leader>1", ":cd ~/source/repos/Syncopotamus/Syncopotamus-go<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>r1", ":cd ~/source/repos/Syncopotamus/Syncopotamus-go<CR>", { noremap = true })
 vim.api.nvim_set_keymap(
   "n",
-  "<leader>2",
+  "<leader>r2",
   ":cd K:/Dropbox/Carlos/Documents/AutoHotkey/Function Keys<CR>",
   { noremap = true }
 )
