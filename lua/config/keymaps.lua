@@ -46,6 +46,7 @@ vim.keymap.set("t", "<C-e>e", "<C-\\><C-n><C-w>k", { silent = true, noremap = tr
 vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = true })
 vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
+
 -- Quality of life
 vim.api.nvim_set_keymap("n", "<M-n>", '"zdd"zp', { noremap = true })
 vim.api.nvim_set_keymap("n", "<M-e>", '"zddk"zP', { noremap = true })
@@ -66,7 +67,7 @@ vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/AppData/Local/nvim<CR>", { no
 vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
--- vim.api.nvim_set_keymap("n", "<leader>so", ":so %<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>ccr", ":so %<CR>", { noremap = true })
 
 -- Frequent Projects
 vim.api.nvim_set_keymap("n", "<leader>r1", ":cd ~/source/repos/Syncopotamus/Syncopotamus-go<CR>", { noremap = true })
@@ -76,3 +77,14 @@ vim.api.nvim_set_keymap(
   ":cd K:/Dropbox/Carlos/Documents/AutoHotkey/Function Keys<CR>",
   { noremap = true }
 )
+
+
+--- Telescope
+vim.keymap.set("n", "<M-/>", function()
+	-- You can pass additional configuration to telescope to change theme, layout, etc.
+	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+		winblend = 20,
+		previewer = true,
+	}))
+end, { desc = "[/] Fuzzily search in current buffer" })
+--
