@@ -69,15 +69,6 @@ vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/
 vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>ccr", ":so %<CR>", { noremap = true })
 
--- Frequent Projects
-vim.api.nvim_set_keymap("n", "<leader>r1", ":cd ~/source/repos/Syncopotamus/Syncopotamus-go<CR>", { noremap = true })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>r2",
-  ":cd K:/Dropbox/Carlos/Documents/AutoHotkey/Function Keys<CR>",
-  { noremap = true }
-)
-
 
 --- Telescope
 vim.keymap.set("n", "<M-/>", function()
@@ -88,3 +79,8 @@ vim.keymap.set("n", "<M-/>", function()
 	}))
 end, { desc = "[/] Fuzzily search in current buffer" })
 --
+--
+-- Frequent Projects
+vim.api.nvim_set_keymap("n", "<leader>r1", ":cd ~/source/repos/Syncopotamus/Syncopotamus-go<CR>", { noremap = true })
+vim.api.nvim_set_keymap( "n", "<leader>r2", ":cd K:/Dropbox/Carlos/Documents<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>r3", ":cd ~/source/repos/bikestash-go<CR>", { noremap = true })
