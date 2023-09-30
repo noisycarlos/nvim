@@ -2,3 +2,4 @@
 require("config.lazy")
 
 vim.o.cursorline = false
+vim.api.nvim_exec([[ hi LineNr guifg=#aaaaaa]], false)
