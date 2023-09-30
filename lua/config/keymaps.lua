@@ -48,8 +48,10 @@ vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
 
 -- Quality of life
-vim.api.nvim_set_keymap("n", "<M-n>", '"zdd"zp', { noremap = true })
-vim.api.nvim_set_keymap("n", "<M-e>", '"zddk"zP', { noremap = true })
+vim.api.nvim_set_keymap("n", "<M-n>", ':m +<CR>', { noremap = true })
+vim.api.nvim_set_keymap("n", "<M-e>", ':m --<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<M-n>", '"zdd"zp', { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<M-e>", '"zddk"zP', { noremap = true })
 
 vim.api.nvim_set_keymap("x", "<M-e>", "dkPV", { noremap = true })
 vim.api.nvim_set_keymap("x", "<M-n>", "dpV", { noremap = true })
@@ -58,6 +60,9 @@ vim.api.nvim_set_keymap("n", "..", "o<Esc>k", { noremap = true })
 vim.api.nvim_set_keymap("n", ",,", "O<Esc>j", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
+
+-- fold function 
+vim.api.nvim_set_keymap("n", "z()", "((zf))", { noremap = true })
 
 --Close buffer without exiting
 vim.api.nvim_set_keymap("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", { noremap = true })
