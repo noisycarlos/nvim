@@ -61,12 +61,18 @@ vim.api.nvim_set_keymap("n", ",,", "O<Esc>j", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
 
+
 -- fold function 
 vim.api.nvim_set_keymap("n", "z()", "((zf))", { noremap = true })
 
 --Close buffer without exiting
 vim.api.nvim_set_keymap("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", { noremap = true })
 
+-- Colors
+-- vim.api.nvim_set_keymap("n", "<leader>cccl", ":colorscheme tokyonight-day<CR>:hi LineNr guifg=#aaaaaa<CR>", { noremap = true, desc="Light Theme"})
+vim.api.nvim_set_keymap("n", "<leader>cctl", ":colorscheme shine<CR>:hi LineNr guifg=#aaaaaa<CR>", { noremap = true, desc="Light Theme"})
+vim.api.nvim_set_keymap("n", "<leader>cctd", ":colorscheme tokyonight<CR>:hi LineNr guifg=#bbbbbb<CR>", { noremap = true, desc="Dark Theme"})
+--
 --Config files
 vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
