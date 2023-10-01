@@ -56,9 +56,9 @@ vim.api.nvim_set_keymap("n", "<M-e>", ':m --<CR>', { noremap = true })
 vim.api.nvim_set_keymap("x", "<M-e>", "dkPV", { noremap = true })
 vim.api.nvim_set_keymap("x", "<M-n>", "dpV", { noremap = true })
 
-vim.api.nvim_set_keymap("n", "..", "o<Esc>k", { noremap = true })
+  vim.api.nvim_set_keymap("n", "..", "o<Esc>k", { noremap = true })
 vim.api.nvim_set_keymap("n", ",,", "O<Esc>j", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
+  vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
 
 
@@ -69,14 +69,15 @@ vim.api.nvim_set_keymap("n", "z()", "((zf))", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", { noremap = true })
 
 -- Colors
--- vim.api.nvim_set_keymap("n", "<leader>cccl", ":colorscheme tokyonight-day<CR>:hi LineNr guifg=#aaaaaa<CR>", { noremap = true, desc="Light Theme"})
-vim.api.nvim_set_keymap("n", "<leader>cctl", ":colorscheme shine<CR>:hi LineNr guifg=#aaaaaa<CR>", { noremap = true, desc="Light Theme"})
-vim.api.nvim_set_keymap("n", "<leader>cctd", ":colorscheme tokyonight<CR>:hi LineNr guifg=#bbbbbb<CR>", { noremap = true, desc="Dark Theme"})
+-- vim.api.nvim_set_keymap("n", "<leader>cctl", ":colorscheme tokyonight-day<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>", { noremap = true, desc="Light Theme"})
+  vim.api.nvim_set_keymap("n", "<leader>cctl", ":colorscheme shine<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>", { noremap = true, desc="Light Theme"})
+  vim.api.nvim_set_keymap("n", "<leader>cctd", ":colorscheme habamax<CR>:colorscheme tokyonight<CR>:hi LineNr guifg=#dddddd<CR>:hi LineNrAbove guifg=#bbbbbb<CR>>:hi LineNrBelow guifg=#bbbbbb<CR>", { noremap = true, desc="Dark Theme"})
 --
 --Config files
 vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>ccK", ":enew|pu=execute('verbose map')", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "<leader>ccmd", ":cd ~/.config/nvim<CR>", { noremap = true })
