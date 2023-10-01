@@ -55,6 +55,7 @@ vim.api.nvim_set_keymap("n", "<M-e>", ':m --<CR>', { noremap = true })
 
 vim.api.nvim_set_keymap("x", "<M-e>", "dkPV", { noremap = true })
 vim.api.nvim_set_keymap("x", "<M-n>", "dpV", { noremap = true })
+vim.api.nvim_set_keymap("n", "zp", "$zf%", { noremap = true })
 
   vim.api.nvim_set_keymap("n", "..", "o<Esc>k", { noremap = true })
 vim.api.nvim_set_keymap("n", ",,", "O<Esc>j", { noremap = true })
