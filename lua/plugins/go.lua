@@ -1,3 +1,4 @@
+
 return {
 
   "nvim-treesitter/nvim-treesitter",
@@ -101,4 +102,12 @@ return {
     "leoluz/nvim-dap-go",
     config = true,
   },
+  {
+    "mason-nvim-dap.nvim",
+    opts = {
+      ensure_installed = { "delve" },
+    },
+  },
+
+
 }
