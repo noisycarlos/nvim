@@ -22,6 +22,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
+      enable = true,
       textobjects = {
         select = {
           enable = true,
@@ -69,6 +70,22 @@ return {
     }
 
   },
+  {
+    "echasnovski/mini.ai",
+    enable = false,
+  },
+  {
+    "echasnovski/mini.indentscope",
+      opts= {
+        mappings = {
+          -- Textobjects
+          object_scope = 'hh',
+          -- Motions (jump to respective border line; if not present - body line)
+          goto_top = '[h',
+          goto_bottom = ']h',
+        },
+      }
+    },
   {
     "mfussenegger/nvim-dap",
 
@@ -188,6 +205,7 @@ return {
       end
     end,
   },
+
 }
 
 
