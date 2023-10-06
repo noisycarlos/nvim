@@ -92,7 +92,6 @@ vim.api.nvim_set_keymap("n", "<leader>ccmp", ":e ~/.config/nvim/lua/plugins/core
 
 vim.api.nvim_set_keymap("n", "<leader>ccr", ":so %<CR>", { noremap = true })
 
-
 -------------------- Plugins
 --Leap
 vim.keymap.set('n', 's', function()
@@ -105,6 +104,32 @@ vim.keymap.set('n', 'S', function()
             vim.api.nvim_tabpage_list_wins(0)
 )}end)
 
+vim.keymap.set('n', 'rd', ":lcd %:p:h<CR>", { noremap = true, desc="Set working dir to current file" })
+vim.keymap.set('n', '<F5>', 
+      function()
+        vim.cmd(":lcd %:p:h") -- set working dir to current buffer
+        require('dap-go').setup {
+          dap_configurations = {
+            {
+              type = "go",
+              name = "Attach remote",
+              mode = "remote",
+              request = "launch",
+              program = ".",
+            },
+          },
+        } 
+        vim.cmd("DapContinue")
+      end,
+      {noremap = true, desc = "Start Debugger"})
+
+vim.keymap.set('n', '<F7>', ":DapContinue<CR>", {noremap = true})
+vim.keymap.set('n', '<F8>', ":DapStepOut<CR>", {noremap = true})
+vim.keymap.set('n', '<F9>', ":DapToggleBreakpoint<CR>", {noremap = true, desc = "Toggle Breakpoint"})
+vim.keymap.set('n', '<F10>', ":DapStepOver<CR>", {noremap = true})
+vim.keymap.set('n', '<F11>', ":DapStepInto<CR>", {noremap = true})
+-- vim.keymap.set('n', '<F9>', ":DapToggleBreakpoint<CR>", {noremap = true, desc = "Toggle Breakpoint"})
+
 --- Telescope
 vim.keymap.set("n", "<M-/>", function()
 	-- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -114,6 +139,7 @@ vim.keymap.set("n", "<M-/>", function()
 	}))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
+-- vim.api.nvim_set_keymap("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { noremap = true , desc="Toggle Breakpoint"})
 
 -------------------- Frequent Projects
 vim.api.nvim_set_keymap("n", "<leader>rr", ":cd ~/repos/<CR>", { noremap = true, desc="Set dir to Repos" })

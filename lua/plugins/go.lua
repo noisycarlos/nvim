@@ -100,7 +100,9 @@ return {
   },
   {
     "leoluz/nvim-dap-go",
-    config = true,
+    -- config = function (_, opts)
+    --   require("dap-go").setup(opts)
+    -- end
   },
   {
     "mason-nvim-dap.nvim",
