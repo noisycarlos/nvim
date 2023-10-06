@@ -10,14 +10,52 @@ return {
     },
   },
   {
+    "L3MON4D3/LuaSnip",
+    enabled = false
+    ,
+  },
+  {
+    "ggandor/flit.nvim",
+    enabled = false,
+    keys = {
+      {"f", false},
+      {"F", false},
+      {"t", false},
+      {"T", false},
+    }
+  },
+  {
     "nvimtools/none-ls.nvim",
     enabled = false,
+  },
+  {
+    "ggandor/leap.nvim",
+    opts={
+      highlight_unlabeled_phase_one_targets = false
+    }
   },
   {
     "neovim/nvim-lspconfig",
     opts = {
       autoformat = false,
     },
+  },
+
+  {
+    "folke/flash.nvim",
+    enabled = false,
+    event = "VeryLazy",
+    opts = {},
+    keys = false
+    -- function()
+    --   return {
+    --     { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    --     { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    --     -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    --     -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    --     { "<leader>uF", mode = { "n" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    -- }
+    -- end
   },
   {
     "nvim-treesitter/nvim-treesitter",

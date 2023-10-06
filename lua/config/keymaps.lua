@@ -47,6 +47,10 @@ vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = tr
 vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
 
+-- Move between panels
+vim.keymap.set("n", "<tab>", "<Cmd>BufferLineCycleNext<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<S-tab>", "<Cmd>BufferLineCyclePrev<CR>", { silent = true, noremap = true })
+
 -- Quality of life
 vim.api.nvim_set_keymap("n", "<M-n>", ':m +<CR>', { noremap = true })
 vim.api.nvim_set_keymap("n", "<M-e>", ':m --<CR>', { noremap = true })
@@ -74,7 +78,7 @@ vim.api.nvim_set_keymap("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", { noremap 
   vim.api.nvim_set_keymap("n", "<leader>cctl", ":colorscheme shine<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>", { noremap = true, desc="Light Theme"})
   vim.api.nvim_set_keymap("n", "<leader>cctd", ":colorscheme habamax<CR>:colorscheme tokyonight<CR>:hi LineNr guifg=#dddddd<CR>:hi LineNrAbove guifg=#bbbbbb<CR>>:hi LineNrBelow guifg=#bbbbbb<CR>", { noremap = true, desc="Dark Theme"})
 --
---Config files
+-------------------- Config files
 vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
@@ -89,6 +93,18 @@ vim.api.nvim_set_keymap("n", "<leader>ccmp", ":e ~/.config/nvim/lua/plugins/core
 vim.api.nvim_set_keymap("n", "<leader>ccr", ":so %<CR>", { noremap = true })
 
 
+-------------------- Plugins
+--Leap
+vim.keymap.set('n', 's', function()
+          require('leap').leap { target_windows = { vim.fn.win_getid() } }
+end)
+
+vim.keymap.set('n', 'S', function()
+          require('leap').leap { target_windows = vim.tbl_filter(
+            function (win) return vim.api.nvim_win_get_config(win).focusable end,
+            vim.api.nvim_tabpage_list_wins(0)
+)}end)
+
 --- Telescope
 vim.keymap.set("n", "<M-/>", function()
 	-- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -97,9 +113,15 @@ vim.keymap.set("n", "<M-/>", function()
 		previewer = true,
 	}))
 end, { desc = "[/] Fuzzily search in current buffer" })
---
---
--- Frequent Projects
-vim.api.nvim_set_keymap("n", "<leader>r1", ":cd ~/source/repos/Syncopotamus/Syncopotamus-go<CR>", { noremap = true })
-vim.api.nvim_set_keymap( "n", "<leader>r2", ":cd K:/Dropbox/Carlos/Documents<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>r3", ":cd ~/source/repos/bikestash-go<CR>", { noremap = true })
+
+
+-------------------- Frequent Projects
+vim.api.nvim_set_keymap("n", "<leader>rr", ":cd ~/repos/<CR>", { noremap = true, desc="Set dir to Repos" })
+vim.api.nvim_set_keymap("n", "<leader>r1", ":cd ~/source/repos/Syncopotamus/Syncopotamus-go<CR>", { noremap = true, desc="Set to Syncopotamus backend" })
+vim.api.nvim_set_keymap( "n", "<leader>r2", ":cd ~/repos/Syncopotamus-svelte/<CR>", { noremap = true, desc="Set to Syncopotamus frontend" })
+vim.api.nvim_set_keymap( "n", "<leader>rd", ":cd K:/Dropbox/Carlos/Documents<CR>", { noremap = true , desc="Set to Documents" })
+vim.api.nvim_set_keymap("n", "<leader>r6", ":cd ~/source/repos/bikestash-go<CR>", { noremap = true , desc="Set to Stash Bike go repo" })
+
+
+-- vim.api.nvim_set_keymap("n", ",", ":cd ~/source/repos/bikestash-go<CR>", { noremap = true , desc="Set to Stash Bike go repo" })
+

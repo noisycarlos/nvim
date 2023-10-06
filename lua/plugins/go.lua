@@ -108,6 +108,4 @@ return {
       ensure_installed = { "delve" },
     },
   },
-
-
 }
