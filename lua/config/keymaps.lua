@@ -46,6 +46,13 @@ vim.keymap.set("t", "<C-e>e", "<C-\\><C-n><C-w>k", { silent = true, noremap = tr
 vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = true })
 vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
+if vim.fn.has("win32") == 1 then
+  vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+elseif vim.fn.has("mac") == 1 then
+  vim.api.nvim_set_keymap('n', '<D-s>', ':w<CR>', { noremap = true, silent = true })
+else
+  vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+end
 
 -- Move between panels
 -- vim.keymap.set("n", "<tab>", "<Cmd>BufferLineCycleNext<CR>", { silent = true, noremap = true })
@@ -92,6 +99,7 @@ vim.api.nvim_set_keymap("n", "<leader>ccmp", ":e ~/.config/nvim/lua/plugins/core
 
 vim.api.nvim_set_keymap("n", "<leader>ccr", ":so %<CR>", { noremap = true })
 
+--
 -------------------- Plugins
 -- Harpoon
 vim.keymap.set('n', '<leader>th', function() require("harpoon.mark").add_file(); vim.cmd("echo 'File Added to Harpoon'") end, {noremap=true, desc="Add file to Harpoon"})
