@@ -102,18 +102,18 @@ vim.api.nvim_set_keymap("n", "<leader>ccr", ":so %<CR>", { noremap = true })
 --
 -------------------- Plugins
 -- Harpoon
-vim.keymap.set('n', '<leader>th', function() require("harpoon.mark").add_file(); vim.cmd("echo 'File Added to Harpoon'") end, {noremap=true, desc="Add file to Harpoon"})
-vim.keymap.set('n', '<leader>tu', function() require("harpoon.ui").toggle_quick_menu() end, {noremap=true, desc="See Harpoon quick menu"})
+vim.keymap.set('n', ',h', function() require("harpoon.mark").add_file(); vim.cmd("echo 'File Added to Harpoon'") end, {noremap=true, desc="Add file to Harpoon"})
+vim.keymap.set('n', ',f', function() require("harpoon.ui").toggle_quick_menu() end, {noremap=true, desc="See Harpoon quick menu"})
 
-vim.keymap.set('n', '<leader>tl', function() require("harpoon.ui").nav_prev() end, {noremap=true, desc="Go to prev harpoon"})
-vim.keymap.set('n', '<leader>ty', function() require("harpoon.ui").nav_next() end, {noremap=true, desc="Go to next harpoon"})
+vim.keymap.set('n', ',p', function() require("harpoon.ui").nav_prev() end, {noremap=true, desc="Go to prev harpoon"})
+vim.keymap.set('n', ',w', function() require("harpoon.ui").nav_next() end, {noremap=true, desc="Go to next harpoon"})
 
-vim.keymap.set('n', '<leader>tr', function() require("harpoon.ui").nav_file(1) end, {noremap=true, desc="Go to harpoon file 1"})
-vim.keymap.set('n', '<leader>ts', function() require("harpoon.ui").nav_file(2) end, {noremap=true, desc="Go to harpoon file 2"})
-vim.keymap.set('n', '<leader>tt', function() require("harpoon.ui").nav_file(3) end, {noremap=true, desc="Go to harpoon file 3"})
-vim.keymap.set('n', '<leader>tn', function() require("harpoon.ui").nav_file(4) end, {noremap=true, desc="Go to harpoon file 4"})
-vim.keymap.set('n', '<leader>te', function() require("harpoon.ui").nav_file(5) end, {noremap=true, desc="Go to harpoon file 5"})
-vim.keymap.set('n', '<leader>ti', function() require("harpoon.ui").nav_file(6) end, {noremap=true, desc="Go to harpoon file 6"})
+vim.keymap.set('n', ',r', function() require("harpoon.ui").nav_file(1) end, {noremap=true, desc="Go to harpoon file 1"})
+vim.keymap.set('n', ',s', function() require("harpoon.ui").nav_file(2) end, {noremap=true, desc="Go to harpoon file 2"})
+vim.keymap.set('n', ',t', function() require("harpoon.ui").nav_file(3) end, {noremap=true, desc="Go to harpoon file 3"})
+vim.keymap.set('n', ',n', function() require("harpoon.ui").nav_file(4) end, {noremap=true, desc="Go to harpoon file 4"})
+vim.keymap.set('n', ',e', function() require("harpoon.ui").nav_file(5) end, {noremap=true, desc="Go to harpoon file 5"})
+vim.keymap.set('n', ',i', function() require("harpoon.ui").nav_file(6) end, {noremap=true, desc="Go to harpoon file 6"})
 --
 --Leap
 vim.keymap.set('n', 's', function()
