@@ -81,9 +81,9 @@ if vim.fn.has("win32") == 1 then
   vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
 else
-  vim.api.nvim_set_keymap("", "<D-e>", ":m --<CR>", { noremap = true })
-  vim.api.nvim_set_keymap("", "<D-n>", ":m +<CR>", { noremap = true })
-  vim.api.nvim_set_keymap("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n","<D-s>", ":w<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("", "<C-n>", ":m +<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("", "<C-e>", ":m --<CR>", { noremap = true })
 
   -------------------- Config files
   vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/.config/nvim<CR>", { noremap = true })
@@ -98,7 +98,6 @@ vim.api.nvim_set_keymap( "n", "<leader>ccK", ":enew|pu=execute('verbose map')<CR
 -- Move between panels
 -- vim.keymap.set("n", "<tab>", "<Cmd>BufferLineCycleNext<CR>", { silent = true, noremap = true })
 -- vim.keymap.set("n", "<S-tab>", "<Cmd>BufferLineCyclePrev<CR>", { silent = true, noremap = true })
-
 
 -- fold function
 vim.api.nvim_set_keymap("x", "<M-e>", "dkPV", { noremap = true })
@@ -129,7 +128,6 @@ vim.api.nvim_set_keymap(
   { noremap = true, desc = "Dark Theme" }
 )
 --
-
 
 --
 -------------------- Plugins
