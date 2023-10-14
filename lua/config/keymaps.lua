@@ -94,8 +94,8 @@ vim.api.nvim_set_keymap("x", "<M-n>", "dpV", { noremap = true })
 vim.api.nvim_set_keymap("n", "zp", "$zf%", { noremap = true })
 vim.api.nvim_set_keymap("n", "z()", "((zf))", { noremap = true })
 
-vim.api.nvim_set_keymap('n', '..', 'o<Esc>"_cc<Esc>k', { noremap = true })
-vim.api.nvim_set_keymap('n', ',,', 'O<Esc>"_cc<Esc>j', { noremap = true })
+vim.api.nvim_set_keymap("n", "..", 'o<Esc>"_cc<Esc>k', { noremap = true })
+vim.api.nvim_set_keymap("n", ",,", 'O<Esc>"_cc<Esc>j', { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
 
@@ -174,8 +174,8 @@ vim.keymap.set("n", ",i", function()
 end, { noremap = true, desc = "Go to harpoon file 6" })
 
 -- Neotree
-vim.keymap.set("n", "<leader>fe", ":Neotree toggle reveal_force_cwd left<CR>", { noremap = true, desc = "Neotree" })
-vim.keymap.set("n", "<leader>fE", ":Neotree focus reveal_force_cwd float<CR>", { noremap = true, desc = "Neotree (Floating)" })
+vim.keymap.set("n", "<leader>e", ":Neotree toggle reveal_force_cwd left<CR>", { noremap = true, desc = "Neotree" })
+vim.keymap.set( "n", "<leader>fe", ":Neotree focus reveal_force_cwd float<CR>", { noremap = true, desc = "Neotree (Floating)" })
 vim.keymap.set("n", "<leader>be", ":Neotree buffers left<CR>", { noremap = true, desc = "Neotree (buffers)" })
 vim.keymap.set("n", "<leader>ge", ":Neotree git_status left<CR>", { noremap = true, desc = "Neotree (git files)" })
 
