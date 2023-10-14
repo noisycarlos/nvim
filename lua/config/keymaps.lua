@@ -73,7 +73,8 @@ vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 if vim.fn.has("win32") == 1 then
   vim.api.nvim_set_keymap("", "<M-e>", ":m --<CR>", { noremap = true })
   vim.api.nvim_set_keymap("", "<M-n>", ":m +<CR>", { noremap = true })
-  vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("", "<C-s>", ":w<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("i", "<C-s>", "<Esc>:w<CR>", { noremap = true, silent = true })
 
   -------------------- Config files
   vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
@@ -81,7 +82,8 @@ if vim.fn.has("win32") == 1 then
   vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
 else
-  vim.api.nvim_set_keymap("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("", "<D-s>", ":w<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("i", "<D-s>", "<Esc>:w<CR>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("", "<M-D-n>", ":m +<CR>", { noremap = true })
   vim.api.nvim_set_keymap("", "<M-D-e>", ":m --<CR>", { noremap = true })
 
