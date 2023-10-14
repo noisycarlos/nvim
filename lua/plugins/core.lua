@@ -25,10 +25,6 @@ return {
     }
   },
   {
-    "nvimtools/none-ls.nvim",
-    enabled = true,
-  },
-  {
     "ggandor/leap.nvim",
     opts={
       highlight_unlabeled_phase_one_targets = false
