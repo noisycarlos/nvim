@@ -26,7 +26,7 @@ return {
   },
   {
     "nvimtools/none-ls.nvim",
-    enabled = false,
+    enabled = true,
   },
   {
     "ggandor/leap.nvim",
