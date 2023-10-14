@@ -82,8 +82,8 @@ if vim.fn.has("win32") == 1 then
   vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
 else
   vim.api.nvim_set_keymap("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("", "<D-N>", ":m +<CR>", { noremap = true })
-  vim.api.nvim_set_keymap("", "<D-E>", ":m --<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("", "<M-D-n>", ":m +<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("", "<M-D-e>", ":m --<CR>", { noremap = true })
 
   -------------------- Config files
   vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/.config/nvim<CR>", { noremap = true })
