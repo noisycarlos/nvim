@@ -71,11 +71,11 @@ vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = tr
 vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
 if vim.fn.has("win32") == 1 then
-  vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 elseif vim.fn.has("mac") == 1 then
-  vim.api.nvim_set_keymap('n', '<D-s>', ':w<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
 else
-  vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 end
 
 -- Move between panels
@@ -83,37 +83,50 @@ end
 -- vim.keymap.set("n", "<S-tab>", "<Cmd>BufferLineCyclePrev<CR>", { silent = true, noremap = true })
 
 -- Quality of life
-vim.api.nvim_set_keymap("n", "<M-n>", ':m +<CR>', { noremap = true })
-vim.api.nvim_set_keymap("n", "<M-e>", ':m --<CR>', { noremap = true })
+vim.api.nvim_set_keymap("", "<M-n>", ":m +<CR>", { noremap = true })
+vim.api.nvim_set_keymap("", "<M-e>", ":m --<CR>", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<M-n>", '"zdd"zp', { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<M-e>", '"zddk"zP', { noremap = true })
 
+-- fold function
 vim.api.nvim_set_keymap("x", "<M-e>", "dkPV", { noremap = true })
 vim.api.nvim_set_keymap("x", "<M-n>", "dpV", { noremap = true })
 vim.api.nvim_set_keymap("n", "zp", "$zf%", { noremap = true })
-
-  vim.api.nvim_set_keymap("n", "..", "o<Esc>k", { noremap = true })
-vim.api.nvim_set_keymap("n", ",,", "O<Esc>j", { noremap = true })
-  vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
-
-
--- fold function 
 vim.api.nvim_set_keymap("n", "z()", "((zf))", { noremap = true })
+
+vim.api.nvim_set_keymap('n', '..', 'o<Esc>"_cc<Esc>k', { noremap = true })
+vim.api.nvim_set_keymap('n', ',,', 'O<Esc>"_cc<Esc>j', { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
 
 --Close buffer without exiting
 vim.api.nvim_set_keymap("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", { noremap = true })
 
 -- Colors
 -- vim.api.nvim_set_keymap("n", "<leader>cctl", ":colorscheme tokyonight-day<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>", { noremap = true, desc="Light Theme"})
-  vim.api.nvim_set_keymap("n", "<leader>cctl", ":colorscheme shine<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>", { noremap = true, desc="Light Theme"})
-  vim.api.nvim_set_keymap("n", "<leader>cctd", ":colorscheme habamax<CR>:colorscheme tokyonight<CR>:hi LineNr guifg=#dddddd<CR>:hi LineNrAbove guifg=#bbbbbb<CR>>:hi LineNrBelow guifg=#bbbbbb<CR>", { noremap = true, desc="Dark Theme"})
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>cctl",
+  ":colorscheme shine<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>",
+  { noremap = true, desc = "Light Theme" }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>cctd",
+  ":colorscheme habamax<CR>:colorscheme tokyonight<CR>:hi LineNr guifg=#dddddd<CR>:hi LineNrAbove guifg=#bbbbbb<CR>>:hi LineNrBelow guifg=#bbbbbb<CR>",
+  { noremap = true, desc = "Dark Theme" }
+)
 --
 -------------------- Config files
 vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>ccK", ":enew|pu=execute('verbose map')<CR>", { noremap = true, desc= "See Keymaps" })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>ccK",
+  ":enew|pu=execute('verbose map')<CR>",
+  { noremap = true, desc = "See Keymaps" }
+)
 vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "<leader>ccmd", ":cd ~/.config/nvim<CR>", { noremap = true })
@@ -126,77 +139,126 @@ vim.api.nvim_set_keymap("n", "<leader>ccr", ":so %<CR>", { noremap = true })
 --
 -------------------- Plugins
 -- Harpoon
-vim.keymap.set('n', ',h', function() require("harpoon.mark").add_file(); vim.cmd("echo 'File Added to Harpoon'") end, {noremap=true, desc="Add file to Harpoon"})
-vim.keymap.set('n', ',f', function() require("harpoon.ui").toggle_quick_menu() end, {noremap=true, desc="See Harpoon quick menu"})
+vim.keymap.set("n", ",h", function()
+  require("harpoon.mark").add_file()
+  vim.cmd("echo 'File Added to Harpoon'")
+end, { noremap = true, desc = "Add file to Harpoon" })
+vim.keymap.set("n", ",f", function()
+  require("harpoon.ui").toggle_quick_menu()
+end, { noremap = true, desc = "See Harpoon quick menu" })
 
-vim.keymap.set('n', ',p', function() require("harpoon.ui").nav_prev() end, {noremap=true, desc="Go to prev harpoon"})
-vim.keymap.set('n', ',w', function() require("harpoon.ui").nav_next() end, {noremap=true, desc="Go to next harpoon"})
+vim.keymap.set("n", ",p", function()
+  require("harpoon.ui").nav_prev()
+end, { noremap = true, desc = "Go to prev harpoon" })
+vim.keymap.set("n", ",w", function()
+  require("harpoon.ui").nav_next()
+end, { noremap = true, desc = "Go to next harpoon" })
 
-vim.keymap.set('n', ',r', function() require("harpoon.ui").nav_file(1) end, {noremap=true, desc="Go to harpoon file 1"})
-vim.keymap.set('n', ',s', function() require("harpoon.ui").nav_file(2) end, {noremap=true, desc="Go to harpoon file 2"})
-vim.keymap.set('n', ',t', function() require("harpoon.ui").nav_file(3) end, {noremap=true, desc="Go to harpoon file 3"})
-vim.keymap.set('n', ',n', function() require("harpoon.ui").nav_file(4) end, {noremap=true, desc="Go to harpoon file 4"})
-vim.keymap.set('n', ',e', function() require("harpoon.ui").nav_file(5) end, {noremap=true, desc="Go to harpoon file 5"})
-vim.keymap.set('n', ',i', function() require("harpoon.ui").nav_file(6) end, {noremap=true, desc="Go to harpoon file 6"})
---
+vim.keymap.set("n", ",r", function()
+  require("harpoon.ui").nav_file(1)
+end, { noremap = true, desc = "Go to harpoon file 1" })
+vim.keymap.set("n", ",s", function()
+  require("harpoon.ui").nav_file(2)
+end, { noremap = true, desc = "Go to harpoon file 2" })
+vim.keymap.set("n", ",t", function()
+  require("harpoon.ui").nav_file(3)
+end, { noremap = true, desc = "Go to harpoon file 3" })
+vim.keymap.set("n", ",n", function()
+  require("harpoon.ui").nav_file(4)
+end, { noremap = true, desc = "Go to harpoon file 4" })
+vim.keymap.set("n", ",e", function()
+  require("harpoon.ui").nav_file(5)
+end, { noremap = true, desc = "Go to harpoon file 5" })
+vim.keymap.set("n", ",i", function()
+  require("harpoon.ui").nav_file(6)
+end, { noremap = true, desc = "Go to harpoon file 6" })
+
+-- Neotree
+vim.keymap.set("n", "<leader>fe", ":Neotree toggle reveal_force_cwd left<CR>", { noremap = true, desc = "Neotree" })
+vim.keymap.set("n", "<leader>fE", ":Neotree focus reveal_force_cwd float<CR>", { noremap = true, desc = "Neotree (Floating)" })
+vim.keymap.set("n", "<leader>be", ":Neotree buffers left<CR>", { noremap = true, desc = "Neotree (buffers)" })
+vim.keymap.set("n", "<leader>ge", ":Neotree git_status left<CR>", { noremap = true, desc = "Neotree (git files)" })
+
 --Leap
-vim.keymap.set('n', 's', function()
-          require('leap').leap { target_windows = { vim.fn.win_getid() } }
+vim.keymap.set("n", "s", function()
+  require("leap").leap({ target_windows = { vim.fn.win_getid() } })
 end)
 
-vim.keymap.set('n', 'S', function()
-          require('leap').leap { target_windows = vim.tbl_filter(
-            function (win) return vim.api.nvim_win_get_config(win).focusable end,
-            vim.api.nvim_tabpage_list_wins(0)
-)}end)
+vim.keymap.set("n", "S", function()
+  require("leap").leap({
+    target_windows = vim.tbl_filter(function(win)
+      return vim.api.nvim_win_get_config(win).focusable
+    end, vim.api.nvim_tabpage_list_wins(0)),
+  })
+end)
 
+vim.keymap.set("n", "<F5>", function()
+  vim.cmd(":lcd %:p:h") -- set working dir to current buffer
+  require("dap-go").setup({
+    dap_configurations = {
+      {
+        type = "go",
+        name = "Attach remote",
+        mode = "remote",
+        request = "launch",
+        program = ".",
+      },
+    },
+  })
+  vim.cmd("DapContinue")
+end, { noremap = true, desc = "Start Debugger" })
 
-vim.keymap.set('n', '<F5>', 
-      function()
-        vim.cmd(":lcd %:p:h") -- set working dir to current buffer
-        require('dap-go').setup {
-          dap_configurations = {
-            {
-              type = "go",
-              name = "Attach remote",
-              mode = "remote",
-              request = "launch",
-              program = ".",
-            },
-          },
-        }
-        vim.cmd("DapContinue")
-      end,
-      {noremap = true, desc = "Start Debugger"})
+vim.keymap.set("n", "<F6>", ":DapContinue<CR>", { noremap = true })
 
-vim.keymap.set('n', '<F6>', ":DapContinue<CR>", {noremap = true})
-
-vim.keymap.set('n', '<F8>', ":DapStepOut<CR>", {noremap = true})
-vim.keymap.set('n', '<F9>', ":DapToggleBreakpoint<CR>", {noremap = true, desc = "Toggle Breakpoint"})
-vim.keymap.set('n', '<F10>', ":DapStepOver<CR>", {noremap = true})
-vim.keymap.set('n', '<F11>', ":DapStepInto<CR>", {noremap = true})
+vim.keymap.set("n", "<F8>", ":DapStepOut<CR>", { noremap = true })
+vim.keymap.set("n", "<F9>", ":DapToggleBreakpoint<CR>", { noremap = true, desc = "Toggle Breakpoint" })
+vim.keymap.set("n", "<F10>", ":DapStepOver<CR>", { noremap = true })
+vim.keymap.set("n", "<F11>", ":DapStepInto<CR>", { noremap = true })
 -- vim.keymap.set('n', '<F9>', ":DapToggleBreakpoint<CR>", {noremap = true, desc = "Toggle Breakpoint"})
 
 --- Telescope
 vim.keymap.set("n", "<M-/>", function()
-	-- You can pass additional configuration to telescope to change theme, layout, etc.
-	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-		winblend = 20,
-		previewer = true,
-	}))
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+    winblend = 20,
+    previewer = true,
+  }))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
 -- vim.api.nvim_set_keymap("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { noremap = true , desc="Toggle Breakpoint"})
 
 -------------------- Frequent Projects
-vim.keymap.set('n', '<leader>rd', ":lcd %:p:h<CR>:echo 'Dir set'<CR>", { noremap = true, desc="Set working dir to current file" })
+vim.keymap.set(
+  "n",
+  "<leader>rd",
+  ":lcd %:p:h<CR>:echo 'Dir set'<CR>",
+  { noremap = true, desc = "Set working dir to current file" }
+)
 
-vim.api.nvim_set_keymap("n", "<leader>rr", ":cd ~/repos/<CR>", { noremap = true, desc="Set dir to Repos" })
-vim.api.nvim_set_keymap("n", "<leader>rs", ":cd ~/source/repos/Syncopotamus/Syncopotamus-go<CR>", { noremap = true, desc="Set to Syncopotamus backend" })
-vim.api.nvim_set_keymap( "n", "<leader>rt", ":cd ~/repos/Syncopotamus-svelte/<CR>", { noremap = true, desc="Set to Syncopotamus frontend" })
-vim.api.nvim_set_keymap( "n", "<leader>rD", ":cd K:/Dropbox/Carlos/Documents<CR>", { noremap = true , desc="Set to Documents" })
-vim.api.nvim_set_keymap("n", "<leader>ri", ":cd ~/source/repos/bikestash-go<CR>", { noremap = true , desc="Set to Stash Bike go repo" })
-
+vim.api.nvim_set_keymap("n", "<leader>rr", ":cd ~/repos/<CR>", { noremap = true, desc = "Set dir to Repos" })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>rs",
+  ":cd ~/source/repos/Syncopotamus/Syncopotamus-go<CR>",
+  { noremap = true, desc = "Set to Syncopotamus backend" }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>rt",
+  ":cd ~/repos/Syncopotamus-svelte/<CR>",
+  { noremap = true, desc = "Set to Syncopotamus frontend" }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>rD",
+  ":cd K:/Dropbox/Carlos/Documents<CR>",
+  { noremap = true, desc = "Set to Documents" }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>ri",
+  ":cd ~/source/repos/bikestash-go<CR>",
+  { noremap = true, desc = "Set to Stash Bike go repo" }
+)
 
 -- vim.api.nvim_set_keymap("n", ",", ":cd ~/source/repos/bikestash-go<CR>", { noremap = true , desc="Set to Stash Bike go repo" })
-

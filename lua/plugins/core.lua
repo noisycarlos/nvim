@@ -24,6 +24,10 @@ return {
     },
   },
   {
+    "nvim-neo-tree/neo-tree.nvim",
+    keys = false,
+  },
+  {
     "ggandor/leap.nvim",
     opts = {
       highlight_unlabeled_phase_one_targets = false,
