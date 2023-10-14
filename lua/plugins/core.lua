@@ -11,38 +11,38 @@ return {
   },
   {
     "L3MON4D3/LuaSnip",
-    keys = false
-    ,
+    keys = false,
   },
   {
     "ggandor/flit.nvim",
     enabled = false,
     keys = {
-      {"f", false},
-      {"F", false},
-      {"t", false},
-      {"T", false},
-    }
+      { "f", false },
+      { "F", false },
+      { "t", false },
+      { "T", false },
+    },
   },
   {
     "ggandor/leap.nvim",
-    opts={
-      highlight_unlabeled_phase_one_targets = false
-    }
-  },
-  {
-    "neovim/nvim-lspconfig",
     opts = {
-      autoformat = false,
+      highlight_unlabeled_phase_one_targets = false,
     },
+    keys = false,
   },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     autoformat = false,
+  --   },
+  -- },
 
   {
     "folke/flash.nvim",
     enabled = false,
     event = "VeryLazy",
     opts = {},
-    keys = false
+    keys = false,
     -- function()
     --   return {
     --     { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
@@ -101,8 +101,7 @@ return {
           },
         },
       },
-    }
-
+    },
   },
   {
     "echasnovski/mini.ai",
@@ -110,16 +109,16 @@ return {
   },
   {
     "echasnovski/mini.indentscope",
-      opts= {
-        mappings = {
-          -- Textobjects
-          object_scope = 'hh',
-          -- Motions (jump to respective border line; if not present - body line)
-          goto_top = '[h',
-          goto_bottom = ']h',
-        },
-      }
+    opts = {
+      mappings = {
+        -- Textobjects
+        object_scope = "hh",
+        -- Motions (jump to respective border line; if not present - body line)
+        goto_top = "[h",
+        goto_bottom = "]h",
+      },
     },
+  },
   {
     "mfussenegger/nvim-dap",
 
@@ -239,8 +238,6 @@ return {
       end
     end,
   },
-
 }
-
 
 -- vim.api.nvim_set_keymap("n", "<M-/>", ":echo 'Hello!'<CR>", { noremap = true })
