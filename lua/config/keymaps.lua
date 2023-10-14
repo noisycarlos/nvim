@@ -59,10 +59,10 @@ vim.api.nvim_set_keymap("s", "j", "n", { noremap = true })
 vim.api.nvim_set_keymap("s", "l", "e", { noremap = true })
 
 -- Move between panels
-vim.api.nvim_set_keymap("n", "<C-m>", "<C-w>h", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-n>", "<C-w>j", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-e>", "<C-w>k", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-i>", "<C-w>l", { noremap = true })
+vim.api.nvim_set_keymap("", "<C-m>", "<C-w>h", { noremap = true })
+vim.api.nvim_set_keymap("", "<C-n>", "<C-w>j", { noremap = true })
+vim.api.nvim_set_keymap("", "<C-e>", "<C-w>k", { noremap = true })
+vim.api.nvim_set_keymap("", "<C-i>", "<C-w>l", { noremap = true })
 
 vim.keymap.set("t", "<C-m>m", "<C-\\><C-n><C-w>h", { silent = true, noremap = true })
 vim.keymap.set("t", "<C-n>n", "<C-\\><C-n><C-w>j", { silent = true, noremap = true })
@@ -81,9 +81,9 @@ if vim.fn.has("win32") == 1 then
   vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
 else
-  vim.api.nvim_set_keymap("n","<D-s>", ":w<CR>", { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("", "<C-n>", ":m +<CR>", { noremap = true })
-  vim.api.nvim_set_keymap("", "<C-e>", ":m --<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("", "<D-N>", ":m +<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("", "<D-E>", ":m --<CR>", { noremap = true })
 
   -------------------- Config files
   vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/.config/nvim<CR>", { noremap = true })
@@ -93,7 +93,12 @@ else
 end
 
 vim.api.nvim_set_keymap("n", "<leader>ccr", ":so %<CR>", { noremap = true })
-vim.api.nvim_set_keymap( "n", "<leader>ccK", ":enew|pu=execute('verbose map')<CR>", { noremap = true, desc = "See Keymaps" })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>ccK",
+  ":enew|pu=execute('verbose map')<CR>",
+  { noremap = true, desc = "See Keymaps" }
+)
 
 -- Move between panels
 -- vim.keymap.set("n", "<tab>", "<Cmd>BufferLineCycleNext<CR>", { silent = true, noremap = true })
