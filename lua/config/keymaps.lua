@@ -71,22 +71,34 @@ vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = tr
 vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
 if vim.fn.has("win32") == 1 then
+  vim.api.nvim_set_keymap("", "<M-e>", ":m --<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("", "<M-n>", ":m +<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
-elseif vim.fn.has("mac") == 1 then
-  vim.api.nvim_set_keymap("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
+
+  -------------------- Config files
+  vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
 else
-  vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("", "<D-e>", ":m --<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("", "<D-n>", ":m +<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("n", "<D-s>", ":w<CR>", { noremap = true, silent = true })
+
+  -------------------- Config files
+  vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/.config/nvim<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/.config/nvim/init.lua<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/.config/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/.config/nvim/lua/plugins/core.lua<CR>", { noremap = true })
 end
+
+vim.api.nvim_set_keymap("n", "<leader>ccr", ":so %<CR>", { noremap = true })
+vim.api.nvim_set_keymap( "n", "<leader>ccK", ":enew|pu=execute('verbose map')<CR>", { noremap = true, desc = "See Keymaps" })
 
 -- Move between panels
 -- vim.keymap.set("n", "<tab>", "<Cmd>BufferLineCycleNext<CR>", { silent = true, noremap = true })
 -- vim.keymap.set("n", "<S-tab>", "<Cmd>BufferLineCyclePrev<CR>", { silent = true, noremap = true })
 
--- Quality of life
-vim.api.nvim_set_keymap("", "<M-n>", ":m +<CR>", { noremap = true })
-vim.api.nvim_set_keymap("", "<M-e>", ":m --<CR>", { noremap = true })
--- vim.api.nvim_set_keymap("n", "<M-n>", '"zdd"zp', { noremap = true })
--- vim.api.nvim_set_keymap("n", "<M-e>", '"zddk"zP', { noremap = true })
 
 -- fold function
 vim.api.nvim_set_keymap("x", "<M-e>", "dkPV", { noremap = true })
@@ -117,24 +129,7 @@ vim.api.nvim_set_keymap(
   { noremap = true, desc = "Dark Theme" }
 )
 --
--------------------- Config files
-vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>ccK",
-  ":enew|pu=execute('verbose map')<CR>",
-  { noremap = true, desc = "See Keymaps" }
-)
-vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
 
-vim.api.nvim_set_keymap("n", "<leader>ccmd", ":cd ~/.config/nvim<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>ccmi", ":e ~/.config/nvim/init.lua<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>ccmk", ":e ~/.config/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>ccmp", ":e ~/.config/nvim/lua/plugins/core.lua<CR>", { noremap = true })
-
-vim.api.nvim_set_keymap("n", "<leader>ccr", ":so %<CR>", { noremap = true })
 
 --
 -------------------- Plugins
@@ -175,7 +170,12 @@ end, { noremap = true, desc = "Go to harpoon file 6" })
 
 -- Neotree
 vim.keymap.set("n", "<leader>e", ":Neotree toggle reveal_force_cwd left<CR>", { noremap = true, desc = "Neotree" })
-vim.keymap.set( "n", "<leader>fe", ":Neotree focus reveal_force_cwd float<CR>", { noremap = true, desc = "Neotree (Floating)" })
+vim.keymap.set(
+  "n",
+  "<leader>fe",
+  ":Neotree focus reveal_force_cwd float<CR>",
+  { noremap = true, desc = "Neotree (Floating)" }
+)
 vim.keymap.set("n", "<leader>be", ":Neotree buffers left<CR>", { noremap = true, desc = "Neotree (buffers)" })
 vim.keymap.set("n", "<leader>ge", ":Neotree git_status left<CR>", { noremap = true, desc = "Neotree (git files)" })
 
