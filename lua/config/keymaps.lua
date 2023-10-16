@@ -16,11 +16,18 @@ vim.api.nvim_set_keymap("n", "k", "m", { noremap = true })
 vim.api.nvim_set_keymap("n", "l", "e", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "L", "E", { noremap = true })
-vim.api.nvim_set_keymap("n", "M", "H", { noremap = true })
-vim.api.nvim_set_keymap("n", "N", "J", { noremap = true })
+
+-- vim.api.nvim_set_keymap("n", "M", "i <Esc>l", { noremap = true })
+vim.api.nvim_set_keymap("n", "M", "lxh", { noremap = true })
 vim.api.nvim_set_keymap("n", "E", "i<CR><Esc>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "I", "hx", { noremap = true })
+vim.api.nvim_set_keymap("n", "I", "a <Esc>h", { noremap = true })
+
+-- vim.api.nvim_set_keymap("n", "M", "H", { noremap = true })
+vim.api.nvim_set_keymap("n", "N", "J", { noremap = true })
 -- vim.api.nvim_set_keymap('n', 'E', 'K', { noremap = true })
-vim.api.nvim_set_keymap("n", "I", "L", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "I", "L", { noremap = true })
+
 vim.api.nvim_set_keymap("n", "H", "I", { noremap = true })
 vim.api.nvim_set_keymap("n", "J", "N", { noremap = true })
 vim.api.nvim_set_keymap("n", "K", "M", { noremap = true })
@@ -69,6 +76,9 @@ vim.keymap.set("t", "<C-n>n", "<C-\\><C-n><C-w>j", { silent = true, noremap = tr
 vim.keymap.set("t", "<C-e>e", "<C-\\><C-n><C-w>k", { silent = true, noremap = true })
 vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = true })
 vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
+
+------------ Terminal Auto Scroll
+vim.keymap.set("t", "G", ":norm G<cr>", { silent = true, noremap = true })
 
 if vim.fn.has("win32") == 1 then
   vim.api.nvim_set_keymap("", "<M-e>", ":m --<CR>", { noremap = true })
@@ -164,18 +174,28 @@ end, { noremap = true, desc = "Go to harpoon file 2" })
 vim.keymap.set("", ",t", function()
   require("harpoon.ui").nav_file(3)
 end, { noremap = true, desc = "Go to harpoon file 3" })
-vim.keymap.set("", ",n", function()
+vim.keymap.set("", ",x", function()
   require("harpoon.ui").nav_file(4)
 end, { noremap = true, desc = "Go to harpoon file 4" })
-vim.keymap.set("", ",e", function()
+vim.keymap.set("", ",c", function()
   require("harpoon.ui").nav_file(5)
 end, { noremap = true, desc = "Go to harpoon file 5" })
-vim.keymap.set("", ",i", function()
+vim.keymap.set("", ",d", function()
   require("harpoon.ui").nav_file(6)
 end, { noremap = true, desc = "Go to harpoon file 6" })
+vim.keymap.set("", ",i", function()
+  require("harpoon.ui").nav_file(7)
+end, { noremap = true, desc = "Go to harpoon file 7" })
+vim.keymap.set("", ",e", function()
+  require("harpoon.ui").nav_file(8)
+end, { noremap = true, desc = "Go to harpoon file 8" })
+vim.keymap.set("", ",n", function()
+  require("harpoon.ui").nav_file(9)
+end, { noremap = true, desc = "Go to harpoon file 9" })
 
--- Neotree
-vim.keymap.set("n", "<leader>e", ":Neotree toggle reveal_force_cwd left<CR>", { noremap = true, desc = "Neotree" })
+-- File Operrations
+vim.keymap.set("", "<leader>fo", ":Oil<CR>", { noremap = true, desc = "Oil" })
+vim.keymap.set("", "<leader>e", ":Neotree toggle reveal_force_cwd left<CR>", { noremap = true, desc = "Neotree" })
 vim.keymap.set(
   "n",
   "<leader>fe",
