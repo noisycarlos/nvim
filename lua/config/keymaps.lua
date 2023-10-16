@@ -135,14 +135,14 @@ vim.api.nvim_set_keymap("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", { noremap 
 vim.api.nvim_set_keymap(
   "n",
   "<leader>cctl",
-  ":colorscheme github_light<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>:mod<CR>",
+  ":colorscheme github_light_tritanopia<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>:mod<CR>",
   -- ":colorscheme shine<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>",
   { noremap = true, desc = "Light Theme" }
 )
 vim.api.nvim_set_keymap(
   "n",
   "<leader>cctd",
-  ":colorscheme habamax<CR>:colorscheme tokyonight<CR>:hi LineNr guifg=#dddddd<CR>:hi LineNrAbove guifg=#bbbbbb<CR>>:hi LineNrBelow guifg=#bbbbbb<CR>:mod<CR>",
+  ":colorscheme tokyonight<CR>:hi LineNr guifg=#dddddd<CR>:hi LineNrAbove guifg=#bbbbbb<CR>>:hi LineNrBelow guifg=#bbbbbb<CR>:mod<CR>",
   { noremap = true, desc = "Dark Theme" }
 )
 --
