@@ -29,9 +29,8 @@ return {
   },
   {
     "catppuccin/nvim", --theme
-    enabled = false,
+    enabled = true,
     name = "catppuccin",
-    priority = 1000,
   },
   {
     "akinsho/bufferline.nvim", -- Tabs
