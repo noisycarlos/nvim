@@ -9,6 +9,7 @@ return {
       -- stages = "static",
     },
   },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "L3MON4D3/LuaSnip",
     keys = false,
@@ -22,6 +23,11 @@ return {
       { "t", false },
       { "T", false },
     },
+  },
+
+  {
+    "akinsho/bufferline.nvim", --tabs
+    enabled = false,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",

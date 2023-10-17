@@ -16,9 +16,8 @@ vim.api.nvim_set_keymap("n", "k", "m", { noremap = true })
 vim.api.nvim_set_keymap("n", "l", "e", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "L", "E", { noremap = true })
-
--- vim.api.nvim_set_keymap("n", "M", "i <Esc>l", { noremap = true })
-vim.api.nvim_set_keymap("n", "M", "lxh", { noremap = true })
+vim.api.nvim_set_keymap("n", "M", "i <Esc>l", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "M", "lxh", { noremap = true })
 vim.api.nvim_set_keymap("n", "E", "i<CR><Esc>", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "I", "hx", { noremap = true })
 vim.api.nvim_set_keymap("n", "I", "a <Esc>h", { noremap = true })
@@ -78,7 +77,7 @@ vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = tr
 vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
 ------------ Terminal Auto Scroll
-vim.keymap.set("t", "G", ":norm G<cr>", { silent = true, noremap = true })
+vim.keymap.set("t", "<C-G>", ":norm G<cr>", { silent = true, noremap = true })
 
 if vim.fn.has("win32") == 1 then
   vim.api.nvim_set_keymap("", "<M-e>", ":m --<CR>", { noremap = true })
@@ -135,13 +134,14 @@ vim.api.nvim_set_keymap("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", { noremap 
 vim.api.nvim_set_keymap(
   "n",
   "<leader>cctl",
-  ":colorscheme shine<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>",
+  ":colorscheme github_light_tritanopia<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>:mod<CR>",
+  -- ":colorscheme shine<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>",
   { noremap = true, desc = "Light Theme" }
 )
 vim.api.nvim_set_keymap(
   "n",
   "<leader>cctd",
-  ":colorscheme habamax<CR>:colorscheme tokyonight<CR>:hi LineNr guifg=#dddddd<CR>:hi LineNrAbove guifg=#bbbbbb<CR>>:hi LineNrBelow guifg=#bbbbbb<CR>",
+  ":colorscheme tokyonight<CR>:hi LineNr guifg=#dddddd<CR>:hi LineNrAbove guifg=#bbbbbb<CR>>:hi LineNrBelow guifg=#bbbbbb<CR>:mod<CR>",
   { noremap = true, desc = "Dark Theme" }
 )
 --
@@ -274,17 +274,20 @@ vim.api.nvim_set_keymap(
   ":cd ~/repos/Syncopotamus-svelte/<CR>",
   { noremap = true, desc = "Set to Syncopotamus frontend" }
 )
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>rD",
-  ":cd K:/Dropbox/Carlos/Documents<CR>",
-  { noremap = true, desc = "Set to Documents" }
-)
+-- vim.api.nvim_set_keymap("n", "<leader>rg", ":cd ~/repos/gcsit<C-d>", { noremap = true, desc = "Gcsit" })
+vim.api.nvim_set_keymap("n", "<leader>rg", ":cd ~/repos/g<C-d>", { noremap = true, desc = "Gcsit" })
 vim.api.nvim_set_keymap(
   "n",
   "<leader>ri",
   ":cd ~/source/repos/bikestash-go<CR>",
   { noremap = true, desc = "Set to Stash Bike go repo" }
+)
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>rD",
+  ":cd K:/Dropbox/Carlos/Documents<CR>",
+  { noremap = true, desc = "Set to Documents" }
 )
 
 -- vim.api.nvim_set_keymap("n", ",", ":cd ~/source/repos/bikestash-go<CR>", { noremap = true , desc="Set to Stash Bike go repo" })
