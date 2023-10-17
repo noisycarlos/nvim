@@ -30,6 +30,19 @@ return {
     enabled = false,
   },
   {
+    "projekt0n/github-nvim-theme",
+    priority = 1000, -- make sure to load this before all the other start plugins
+  },
+  {
+    "catppuccin/nvim", --theme
+    enabled = true,
+    name = "catppuccin",
+  },
+  {
+    "akinsho/bufferline.nvim", -- Tabs
+    enabled = false,
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     keys = false,
     opts = {

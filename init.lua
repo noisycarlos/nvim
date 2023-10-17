@@ -33,6 +33,8 @@ require("oil").setup({
   },
 })
 
+require("catppuccin").setup({})
+
 require("lualine").setup({
   sections = {
     lualine_c = {
