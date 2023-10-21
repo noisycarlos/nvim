@@ -77,8 +77,9 @@ vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = tr
 vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
 ------------ Terminal Auto Scroll
-vim.keymap.set("t", "<C-G>", ":norm G<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<C-G>", ":norm G<cr>", { silent = true, noremap = true })
 
+------------
 if vim.fn.has("win32") == 1 then
   vim.api.nvim_set_keymap("", "<M-e>", ":m --<CR>", { noremap = true })
   vim.api.nvim_set_keymap("", "<M-n>", ":m +<CR>", { noremap = true })
@@ -88,8 +89,19 @@ if vim.fn.has("win32") == 1 then
   -------------------- Config files
   vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
-  vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
+  vim.api.nvim_set_keymap(
+    "n",
+    "<leader>cck",
+    ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>",
+    { noremap = true, desc = "Open Keymaps" }
+  )
   vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
+  vim.api.nvim_set_keymap(
+    "n",
+    "<leader>ccr",
+    ":so ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>",
+    { noremap = true, desc = "Refresh Keymaps" }
+  )
 else
   vim.api.nvim_set_keymap("", "<D-s>", ":w<CR>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("i", "<D-s>", "<Esc>:w<CR>", { noremap = true, silent = true })
@@ -101,15 +113,20 @@ else
   vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/.config/nvim/init.lua<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/.config/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/.config/nvim/lua/plugins/core.lua<CR>", { noremap = true })
+  vim.api.nvim_set_keymap(
+    "n",
+    "<leader>ccr",
+    ":so ~/.config/nvim/lua/config/keymaps.lua<CR>",
+    { noremap = true, desc = "Refresh Keymaps" }
+  )
 end
 
-vim.api.nvim_set_keymap("n", "<leader>ccr", ":so %<CR>", { noremap = true })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>ccK",
-  ":enew|pu=execute('verbose map')<CR>",
-  { noremap = true, desc = "See Keymaps" }
-)
+-- vim.api.nvim_set_keymap( "n", "<leader>ccK", ":enew|pu=execute('verbose map')<CR>", { noremap = true, desc = "See Keymaps" })
+
+vim.api.nvim_set_keymap("n", "<C-S-x>", "10<C-x>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-S-a>", "10<C-a>", { noremap = true })
+
+-- 66
 
 -- Move between panels
 -- vim.keymap.set("n", "<tab>", "<Cmd>BufferLineCycleNext<CR>", { silent = true, noremap = true })
@@ -143,6 +160,19 @@ vim.api.nvim_set_keymap(
   "<leader>cctd",
   ":colorscheme tokyonight<CR>:hi LineNr guifg=#dddddd<CR>:hi LineNrAbove guifg=#bbbbbb<CR>>:hi LineNrBelow guifg=#bbbbbb<CR>:mod<CR>",
   { noremap = true, desc = "Dark Theme" }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>cctt",
+  ":colorscheme tokyonight-day<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>:mod<CR>",
+  -- ":colorscheme shine<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>",
+  { noremap = true, desc = "Light Theme" }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>cctn",
+  ":colorscheme tokyonight-night<CR>:hi LineNr guifg=#dddddd<CR>:hi LineNrAbove guifg=#bbbbbb<CR>>:hi LineNrBelow guifg=#bbbbbb<CR>:mod<CR>",
+  { noremap = true, desc = "Night Theme" }
 )
 --
 
@@ -243,6 +273,14 @@ vim.keymap.set("n", "<F11>", ":DapStepInto<CR>", { noremap = true })
 -- vim.keymap.set('n', '<F9>', ":DapToggleBreakpoint<CR>", {noremap = true, desc = "Toggle Breakpoint"})
 
 --- Telescope
+vim.keymap.set(
+  "n",
+  "<leader>fs",
+  "<cmd>Telescope lsp_document_symbols<CR>",
+  { noremap = true, desc = "Search Sympols" }
+)
+vim.api.nvim_set_keymap("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { noremap = true, desc = "See Keymaps" })
+
 vim.keymap.set("n", "<M-/>", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
@@ -252,6 +290,10 @@ vim.keymap.set("n", "<M-/>", function()
 end, { desc = "[/] Fuzzily search in current buffer" })
 
 -- vim.api.nvim_set_keymap("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { noremap = true , desc="Toggle Breakpoint"})
+-------------------- Aerial
+vim.keymap.set("n", "<leader>fm", "<cmd>Telescope aerial<CR>", { noremap = true, desc = "Search Sympols" })
+vim.keymap.set("n", "<leader>fn", ":AerialNavToggle<CR>", { noremap = true, desc = "Navigate Sympols" })
+vim.keymap.set("n", "<leader>fa", ":AerialToggle<CR>", { noremap = true, desc = "Toggle Aerial Sidebar" })
 
 -------------------- Frequent Projects
 vim.keymap.set(
