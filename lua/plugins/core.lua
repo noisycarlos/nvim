@@ -35,7 +35,7 @@ return {
   },
   {
     "catppuccin/nvim", --theme
-    enabled = true,
+    enabled = false,
     name = "catppuccin",
   },
   {
