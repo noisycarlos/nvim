@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 --
 --
+vim.api.nvim_set_keymap("", "<C-l>", "<C-e>", { noremap = true })
 -- Colemak nav
 vim.api.nvim_set_keymap("n", "m", "h", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "n", "j", { noremap = true })
@@ -273,6 +274,12 @@ vim.keymap.set("n", "<F11>", ":DapStepInto<CR>", { noremap = true })
 -- vim.keymap.set('n', '<F9>', ":DapToggleBreakpoint<CR>", {noremap = true, desc = "Toggle Breakpoint"})
 
 --- Telescope
+vim.keymap.set(
+  "n",
+  "<leader><leader>",
+  "<cmd>Telescope resume<CR>",
+  { noremap = true, desc = "Resume last telescope search" }
+)
 vim.keymap.set(
   "n",
   "<leader>fs",
