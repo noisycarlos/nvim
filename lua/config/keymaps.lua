@@ -77,10 +77,51 @@ vim.keymap.set("t", "<C-e>e", "<C-\\><C-n><C-w>k", { silent = true, noremap = tr
 vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = true })
 vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
------------- Terminal Auto Scroll
-vim.keymap.set("n", "<C-G>", ":norm G<cr>", { silent = true, noremap = true })
+--------- Convenience / Quality of Life
+vim.api.nvim_set_keymap("", "<leader>p", '"_diw""P', { noremap = true }) -- Replace word under cursor
+vim.api.nvim_set_keymap("n", "<C-S-x>", "10<C-x>", { noremap = true }) -- Increment number by 10
+vim.api.nvim_set_keymap("n", "<C-S-a>", "10<C-a>", { noremap = true }) -- Decrement number by 10
+vim.api.nvim_set_keymap("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", { noremap = true }) --Close buffer without exiting
+vim.keymap.set("n", "<C-G>", ":norm G<cr>", { silent = true, noremap = true }) --Auto Scroll in Terminal
 
-------------
+-------------------- Frequent Projects
+vim.keymap.set(
+  "n",
+  "<leader>rd",
+  ":lcd %:p:h<CR>:echo 'Dir set'<CR>",
+  { noremap = true, desc = "Set working dir to current file" }
+)
+
+vim.api.nvim_set_keymap("n", "<leader>rr", ":cd ~/repos/<CR>", { noremap = true, desc = "Set dir to Repos" })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>rs",
+  ":cd ~/source/repos/Syncopotamus/Syncopotamus-go<CR>",
+  { noremap = true, desc = "Set to Syncopotamus backend" }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>rt",
+  ":cd ~/repos/Syncopotamus-svelte/<CR>",
+  { noremap = true, desc = "Set to Syncopotamus frontend" }
+)
+-- vim.api.nvim_set_keymap("n", "<leader>rg", ":cd ~/repos/gcsit<C-d>", { noremap = true, desc = "Gcsit" })
+vim.api.nvim_set_keymap("n", "<leader>rg", ":cd ~/repos/g<C-d>", { noremap = true, desc = "Gcsit" })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>ri",
+  ":cd ~/source/repos/bikestash-go<CR>",
+  { noremap = true, desc = "Set to Stash Bike go repo" }
+)
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>rD",
+  ":cd K:/Dropbox/Carlos/Documents<CR>",
+  { noremap = true, desc = "Set to Documents" }
+)
+
+------------ Config by OS
 if vim.fn.has("win32") == 1 then
   vim.api.nvim_set_keymap("", "<M-e>", ":m --<CR>", { noremap = true })
   vim.api.nvim_set_keymap("", "<M-n>", ":m +<CR>", { noremap = true })
@@ -91,10 +132,25 @@ if vim.fn.has("win32") == 1 then
   vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
-  vim.api.nvim_set_keymap("n", "<leader>ccl", ":e C:\\Users\\Carlos\\AppData\\Roaming\\lazygit\\config.yml<CR>", { noremap = true, desc="Open LazyGit configuration"})
+  vim.api.nvim_set_keymap(
+    "n",
+    "<leader>ccl",
+    ":e C:\\Users\\Carlos\\AppData\\Roaming\\lazygit\\config.yml<CR>",
+    { noremap = true, desc = "Open LazyGit configuration" }
+  )
 
-  vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true, desc = "Open Keymaps" })
-  vim.api.nvim_set_keymap( "n", "<leader>ccr", ":so ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true, desc = "Refresh Keymaps" })
+  vim.api.nvim_set_keymap(
+    "n",
+    "<leader>cck",
+    ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>",
+    { noremap = true, desc = "Open Keymaps" }
+  )
+  vim.api.nvim_set_keymap(
+    "n",
+    "<leader>ccr",
+    ":so ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>",
+    { noremap = true, desc = "Refresh Keymaps" }
+  )
 else
   vim.api.nvim_set_keymap("", "<D-s>", ":w<CR>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("i", "<D-s>", "<Esc>:w<CR>", { noremap = true, silent = true })
@@ -105,22 +161,21 @@ else
   vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/.config/nvim<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/.config/nvim/init.lua<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/.config/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
-  vim.api.nvim_set_keymap("n", "<leader>ccl", ":e ~/Library/Application Support/lazygit/config.yml<CR>", { noremap = true, desc="Open LazyGit configuration"})
+  vim.api.nvim_set_keymap(
+    "n",
+    "<leader>ccl",
+    ":e ~/Library/Application Support/lazygit/config.yml<CR>",
+    { noremap = true, desc = "Open LazyGit configuration" }
+  )
 
   vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/.config/nvim/lua/plugins/core.lua<CR>", { noremap = true })
-  vim.api.nvim_set_keymap( "n", "<leader>ccr", ":so ~/.config/nvim/lua/config/keymaps.lua<CR>", { noremap = true, desc = "Refresh Keymaps" })
+  vim.api.nvim_set_keymap(
+    "n",
+    "<leader>ccr",
+    ":so ~/.config/nvim/lua/config/keymaps.lua<CR>",
+    { noremap = true, desc = "Refresh Keymaps" }
+  )
 end
-
--- vim.api.nvim_set_keymap( "n", "<leader>ccK", ":enew|pu=execute('verbose map')<CR>", { noremap = true, desc = "See Keymaps" })
-
-vim.api.nvim_set_keymap("n", "<C-S-x>", "10<C-x>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-S-a>", "10<C-a>", { noremap = true })
-
--- 66
-
--- Move between panels
--- vim.keymap.set("n", "<tab>", "<Cmd>BufferLineCycleNext<CR>", { silent = true, noremap = true })
--- vim.keymap.set("n", "<S-tab>", "<Cmd>BufferLineCyclePrev<CR>", { silent = true, noremap = true })
 
 -- fold function
 vim.api.nvim_set_keymap("x", "<M-e>", "dkPV", { noremap = true })
@@ -133,11 +188,7 @@ vim.api.nvim_set_keymap("n", ",,", 'O<Esc>"_cc<Esc>j', { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
 
---Close buffer without exiting
-vim.api.nvim_set_keymap("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", { noremap = true })
-
 -- Colors
--- vim.api.nvim_set_keymap("n", "<leader>cctl", ":colorscheme tokyonight-day<CR>:hi LineNr guifg=#000000<CR>:hi LineNrAbove guifg=#000000<CR>>:hi LineNrBelow guifg=#000000<CR>", { noremap = true, desc="Light Theme"})
 vim.api.nvim_set_keymap(
   "n",
   "<leader>cctl",
@@ -295,42 +346,5 @@ vim.keymap.set("n", "<leader>fj", "<cmd>Telescope jumplist<CR>", { noremap = tru
 vim.keymap.set("n", "<leader>fn", "<cmd>Telescope aerial<CR>", { noremap = true, desc = "Search Symbols" })
 vim.keymap.set("n", "<leader>fm", ":AerialNavToggle<CR>", { noremap = true, desc = "Navigate Symbols" })
 vim.keymap.set("n", "<leader>fa", ":AerialToggle<CR>", { noremap = true, desc = "Toggle Aerial Sidebar" })
-
--------------------- Frequent Projects
-vim.keymap.set(
-  "n",
-  "<leader>rd",
-  ":lcd %:p:h<CR>:echo 'Dir set'<CR>",
-  { noremap = true, desc = "Set working dir to current file" }
-)
-
-vim.api.nvim_set_keymap("n", "<leader>rr", ":cd ~/repos/<CR>", { noremap = true, desc = "Set dir to Repos" })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>rs",
-  ":cd ~/source/repos/Syncopotamus/Syncopotamus-go<CR>",
-  { noremap = true, desc = "Set to Syncopotamus backend" }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>rt",
-  ":cd ~/repos/Syncopotamus-svelte/<CR>",
-  { noremap = true, desc = "Set to Syncopotamus frontend" }
-)
--- vim.api.nvim_set_keymap("n", "<leader>rg", ":cd ~/repos/gcsit<C-d>", { noremap = true, desc = "Gcsit" })
-vim.api.nvim_set_keymap("n", "<leader>rg", ":cd ~/repos/g<C-d>", { noremap = true, desc = "Gcsit" })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>ri",
-  ":cd ~/source/repos/bikestash-go<CR>",
-  { noremap = true, desc = "Set to Stash Bike go repo" }
-)
-
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>rD",
-  ":cd K:/Dropbox/Carlos/Documents<CR>",
-  { noremap = true, desc = "Set to Documents" }
-)
 
 -- vim.api.nvim_set_keymap("n", ",", ":cd ~/source/repos/bikestash-go<CR>", { noremap = true , desc="Set to Stash Bike go repo" })
