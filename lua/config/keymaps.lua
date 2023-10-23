@@ -90,19 +90,11 @@ if vim.fn.has("win32") == 1 then
   -------------------- Config files
   vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/AppData/Local/nvim<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/AppData/Local/nvim/init.lua<CR>", { noremap = true })
-  vim.api.nvim_set_keymap(
-    "n",
-    "<leader>cck",
-    ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>",
-    { noremap = true, desc = "Open Keymaps" }
-  )
   vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/AppData/Local/nvim/lua/plugins/core.lua<CR>", { noremap = true })
-  vim.api.nvim_set_keymap(
-    "n",
-    "<leader>ccr",
-    ":so ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>",
-    { noremap = true, desc = "Refresh Keymaps" }
-  )
+  vim.api.nvim_set_keymap("n", "<leader>ccl", ":e C:\\Users\\Carlos\\AppData\\Roaming\\lazygit\\config.yml<CR>", { noremap = true, desc="Open LazyGit configuration"})
+
+  vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true, desc = "Open Keymaps" })
+  vim.api.nvim_set_keymap( "n", "<leader>ccr", ":so ~/AppData/Local/nvim/lua/config/keymaps.lua<CR>", { noremap = true, desc = "Refresh Keymaps" })
 else
   vim.api.nvim_set_keymap("", "<D-s>", ":w<CR>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("i", "<D-s>", "<Esc>:w<CR>", { noremap = true, silent = true })
@@ -113,13 +105,10 @@ else
   vim.api.nvim_set_keymap("n", "<leader>ccd", ":cd ~/.config/nvim<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>cci", ":e ~/.config/nvim/init.lua<CR>", { noremap = true })
   vim.api.nvim_set_keymap("n", "<leader>cck", ":e ~/.config/nvim/lua/config/keymaps.lua<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("n", "<leader>ccl", ":e ~/Library/Application Support/lazygit/config.yml<CR>", { noremap = true, desc="Open LazyGit configuration"})
+
   vim.api.nvim_set_keymap("n", "<leader>ccp", ":e ~/.config/nvim/lua/plugins/core.lua<CR>", { noremap = true })
-  vim.api.nvim_set_keymap(
-    "n",
-    "<leader>ccr",
-    ":so ~/.config/nvim/lua/config/keymaps.lua<CR>",
-    { noremap = true, desc = "Refresh Keymaps" }
-  )
+  vim.api.nvim_set_keymap( "n", "<leader>ccr", ":so ~/.config/nvim/lua/config/keymaps.lua<CR>", { noremap = true, desc = "Refresh Keymaps" })
 end
 
 -- vim.api.nvim_set_keymap( "n", "<leader>ccK", ":enew|pu=execute('verbose map')<CR>", { noremap = true, desc = "See Keymaps" })
@@ -179,6 +168,10 @@ vim.api.nvim_set_keymap(
 
 --
 -------------------- Plugins
+-- Copilot
+vim.keymap.set("", "<leader>u,", "<cmd>Copilot enable<cr>", { noremap = true, desc = "Enable Copilot" })
+vim.keymap.set("", "<leader>u.", "<cmd>Copilot disable<cr>", { noremap = true, desc = "Disable Copilot" })
+
 -- Harpoon
 vim.keymap.set("", ",.", ":b#<CR>", { noremap = true, desc = "Go to prev buffer" })
 vim.keymap.set("", ",h", function()
@@ -298,8 +291,9 @@ end, { desc = "[/] Fuzzily search in current buffer" })
 
 -- vim.api.nvim_set_keymap("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { noremap = true , desc="Toggle Breakpoint"})
 -------------------- Aerial
-vim.keymap.set("n", "<leader>fm", "<cmd>Telescope aerial<CR>", { noremap = true, desc = "Search Sympols" })
-vim.keymap.set("n", "<leader>fn", ":AerialNavToggle<CR>", { noremap = true, desc = "Navigate Sympols" })
+vim.keymap.set("n", "<leader>fj", "<cmd>Telescope jumplist<CR>", { noremap = true, desc = "Jumplist" })
+vim.keymap.set("n", "<leader>fn", "<cmd>Telescope aerial<CR>", { noremap = true, desc = "Search Symbols" })
+vim.keymap.set("n", "<leader>fm", ":AerialNavToggle<CR>", { noremap = true, desc = "Navigate Symbols" })
 vim.keymap.set("n", "<leader>fa", ":AerialToggle<CR>", { noremap = true, desc = "Toggle Aerial Sidebar" })
 
 -------------------- Frequent Projects
