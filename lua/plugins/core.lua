@@ -153,8 +153,8 @@ return {
         -- Textobjects
         object_scope = "hh",
         -- Motions (jump to respective border line; if not present - body line)
-        goto_top = "[h",
-        goto_bottom = "]h",
+        goto_top = "[s",
+        goto_bottom = "]s",
       },
     },
   },
