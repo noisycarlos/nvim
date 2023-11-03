@@ -97,7 +97,7 @@ vim.api.nvim_set_keymap("n", "<leader>rr", ":cd ~/repos/<CR>", { noremap = true,
 vim.api.nvim_set_keymap(
   "n",
   "<leader>rs",
-  ":cd ~/source/repos/Syncopotamus/Syncopotamus-go<CR>",
+  ":cd ~/repos/Syncopotamus-go<CR>",
   { noremap = true, desc = "Set to Syncopotamus backend" }
 )
 vim.api.nvim_set_keymap(
