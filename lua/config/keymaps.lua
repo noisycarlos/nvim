@@ -78,6 +78,8 @@ vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = tr
 vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
 --------- Convenience / Quality of Life
+vim.api.nvim_set_keymap("", "<C-h>", "<C-i>", { noremap = true }) -- Jumplist
+
 vim.api.nvim_set_keymap("n", "<leader>p", '"_diw"+P', { noremap = true }) -- Replace word under cursor
 vim.api.nvim_set_keymap("v", "<leader>p", '"_d"+P', { noremap = true }) -- Replace selection
 vim.api.nvim_set_keymap("n", "<C-S-x>", "10<C-x>", { noremap = true }) -- Increment number by 10
