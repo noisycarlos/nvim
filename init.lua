@@ -3,6 +3,8 @@ require("config.lazy")
 
 vim.cmd([[set foldmethod=indent]])
 
+vim.g.minipairs_disable = true
+
 require("oil").setup({
   win_options = {
     wrap = false,
