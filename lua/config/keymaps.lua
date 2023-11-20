@@ -363,3 +363,7 @@ vim.keymap.set("n", "<leader>fm", ":AerialNavToggle<CR>", { noremap = true, desc
 vim.keymap.set("n", "<leader>fa", ":AerialToggle<CR>", { noremap = true, desc = "Toggle Aerial Sidebar" })
 
 -- vim.api.nvim_set_keymap("n", ",", ":cd ~/source/repos/bikestash-go<CR>", { noremap = true , desc="Set to Stash Bike go repo" })
+--
+
+-------- REST
+vim.keymap.set("n", "<leader>cx", ":call VrcQuery()<cr>", { noremap = true, desc = "Execute REST request" })

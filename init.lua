@@ -5,6 +5,12 @@ vim.cmd([[set foldmethod=indent]])
 
 vim.g.minipairs_disable = true
 
+-- REST Plugin Settings
+vim.g.vrc_set_default_mapping = false
+vim.g.vrc_response_default_content_type = "application/json"
+vim.g.vrc_output_buffer_name = "REST Response"
+
+-- Oil
 require("oil").setup({
   win_options = {
     wrap = false,
