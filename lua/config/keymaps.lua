@@ -80,6 +80,7 @@ vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 --------- Convenience / Quality of Life
 vim.api.nvim_set_keymap("", "<C-h>", "<C-i>", { noremap = true }) -- Jumplist
 
+vim.api.nvim_set_keymap("n", "<leader>P", '"_Dp', { noremap = true }) -- Replace word under cursor
 vim.api.nvim_set_keymap("n", "<leader>p", '"_diw"+P', { noremap = true }) -- Replace word under cursor
 vim.api.nvim_set_keymap("v", "<leader>p", '"_d"+P', { noremap = true }) -- Replace selection
 vim.api.nvim_set_keymap("n", "<C-S-x>", "10<C-x>", { noremap = true }) -- Increment number by 10
@@ -125,18 +126,15 @@ vim.api.nvim_set_keymap(
 )
 
 ------------ Move (By OS)
-if vim.fn.has("mac") == 0 then
-  vim.api.nvim_set_keymap("i", "<C-s>", "<Esc>:w<CR>", { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("", "<C-s>", ":w<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-s>", "<Esc>:w<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 
+if vim.fn.has("mac") == 1 then
+  vim.api.nvim_set_keymap("", "<C-D-e>", ":m --<CR>", { noremap = true })
+  vim.api.nvim_set_keymap("", "<C-D-n>", ":m +<CR>", { noremap = true })
+else
   vim.api.nvim_set_keymap("", "<M-e>", ":m --<CR>", { noremap = true })
   vim.api.nvim_set_keymap("", "<M-n>", ":m +<CR>", { noremap = true })
-else
-  vim.api.nvim_set_keymap("i", "<D-s>", "<Esc>:w<CR>", { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("", "<D-s>", ":w<CR>", { noremap = true, silent = true })
-
-  vim.api.nvim_set_keymap("", "<M-D-e>", ":m --<CR>", { noremap = true })
-  vim.api.nvim_set_keymap("", "<M-D-n>", ":m +<CR>", { noremap = true })
 end
 
 if vim.fn.has("win32") == 1 then
