@@ -15,6 +15,10 @@ return {
     keys = false,
   },
   {
+    "nvimtools/none-ls.nvim",
+    enabled = false,
+  },
+  {
     "ggandor/flit.nvim",
     enabled = false,
     keys = {
