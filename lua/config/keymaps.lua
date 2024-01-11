@@ -78,7 +78,6 @@ vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = tr
 vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
 --------- Convenience / Quality of Life
-vim.api.nvim_set_keymap("", "<C-h>", "<C-i>", { noremap = true }) -- Jumplist
 
 vim.api.nvim_set_keymap("n", "<leader>P", '"_Dp', { noremap = true }) -- Replace word under cursor
 vim.api.nvim_set_keymap("n", "<leader>p", '"_diw"+P', { noremap = true }) -- Replace word under cursor
@@ -198,8 +197,13 @@ vim.api.nvim_set_keymap("n", "z()", "((zf))", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "..", 'o<Esc>"_cc<Esc>k', { noremap = true })
 vim.api.nvim_set_keymap("n", ",,", 'O<Esc>"_cc<Esc>j', { noremap = true })
+
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true })
+
+--Jumplist
+vim.api.nvim_set_keymap("", "<C-h>", "<C-i>zz", { noremap = true })
+vim.api.nvim_set_keymap("", "<C-o>", "<C-o>zz", { noremap = true })
 
 -- Colors
 vim.api.nvim_set_keymap(
