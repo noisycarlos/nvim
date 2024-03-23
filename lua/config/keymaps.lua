@@ -236,9 +236,26 @@ vim.api.nvim_set_keymap(
 
 --
 -------------------- Plugins
--- Copilot
-vim.keymap.set("", "<leader>u,", "<cmd>Copilot enable<cr>", { noremap = true, desc = "Enable Copilot" })
-vim.keymap.set("", "<leader>u.", "<cmd>Copilot disable<cr>", { noremap = true, desc = "Disable Copilot" })
+-- -- copilogt
+-- vim.keymap.set("", "<leader>u,", "<cmd>copilot enable<cr>", { noremap = true, desc = "enable copilot" })
+-- vim.keymap.set("", "<leader>u.", "<cmd>Copilot disable<cr>", { noremap = true, desc = "Disable Copilot" })
+
+---- Codeium
+vim.keymap.set("", "<leader>u.", "<cmd>CodeiumToggle<cr>", { noremap = true, desc = "Toggle Codeium" })
+
+vim.keymap.set("i", "<m-p>", function()
+  return vim.fn["codeium#CycleCompletions"](1)
+end, { expr = true, silent = true })
+vim.keymap.set("i", "<m-w>", function()
+  return vim.fn["codeium#CycleCompletions"](-1)
+end, { expr = true, silent = true })
+
+vim.keymap.set("i", "<m-f>", function()
+  return vim.fn["codeium#Accept"]()
+end, { expr = true, silent = true })
+vim.keymap.set("i", "<m-q>", function()
+  return vim.fn["codeium#Clear"]()
+end, { expr = true, silent = true })
 
 -- Harpoon
 vim.keymap.set("", ",.", ":b#<CR>", { noremap = true, desc = "Go to prev buffer" })
