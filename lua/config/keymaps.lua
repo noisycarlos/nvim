@@ -66,15 +66,16 @@ vim.api.nvim_set_keymap("s", "j", "n", { noremap = true })
 vim.api.nvim_set_keymap("s", "l", "e", { noremap = true })
 
 -- Move between panels
-vim.api.nvim_set_keymap("", "<C-m>", "<C-w>h", { noremap = true })
-vim.api.nvim_set_keymap("", "<C-n>", "<C-w>j", { noremap = true })
-vim.api.nvim_set_keymap("", "<C-e>", "<C-w>k", { noremap = true })
-vim.api.nvim_set_keymap("", "<C-i>", "<C-w>l", { noremap = true })
 
-vim.keymap.set("t", "<C-m>m", "<C-\\><C-n><C-w>h", { silent = true, noremap = true })
-vim.keymap.set("t", "<C-n>n", "<C-\\><C-n><C-w>j", { silent = true, noremap = true })
-vim.keymap.set("t", "<C-e>e", "<C-\\><C-n><C-w>k", { silent = true, noremap = true })
-vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = true })
+-- vim.api.nvim_set_keymap("", "<C-m>", "<C-w>h", { noremap = true })
+-- vim.api.nvim_set_keymap("", "<C-n>", "<C-w>j", { noremap = true })
+-- vim.api.nvim_set_keymap("", "<C-e>", "<C-w>k", { noremap = true })
+-- vim.api.nvim_set_keymap("", "<C-i>", "<C-w>l", { noremap = true })
+--
+-- vim.keymap.set("t", "<C-m>m", "<C-\\><C-n><C-w>h", { silent = true, noremap = true })
+-- vim.keymap.set("t", "<C-n>n", "<C-\\><C-n><C-w>j", { silent = true, noremap = true })
+-- vim.keymap.set("t", "<C-e>e", "<C-\\><C-n><C-w>k", { silent = true, noremap = true })
+-- vim.keymap.set("t", "<C-i>i", "<C-\\><C-n><C-w>l", { silent = true, noremap = true })
 vim.api.nvim_set_keymap("n", "<C-,>", "<C-w>o", { noremap = true })
 
 --------- Convenience / Quality of Life
@@ -241,7 +242,8 @@ vim.api.nvim_set_keymap(
 -- vim.keymap.set("", "<leader>u.", "<cmd>Copilot disable<cr>", { noremap = true, desc = "Disable Copilot" })
 
 ---- Codeium
-vim.keymap.set("", "<leader>u.", "<cmd>CodeiumToggle<cr>", { noremap = true, desc = "Toggle Codeium" })
+-- vim.keymap.set("", "<leader>u.", "<cmd>CodeiumToggle<cr>", { noremap = true, desc = "Toggle Codeium" })
+vim.keymap.set("", "<m-q>", "<cmd>CodeiumToggle<cr>", { noremap = true, desc = "Toggle Codeium" })
 
 vim.keymap.set("i", "<m-p>", function()
   return vim.fn["codeium#CycleCompletions"](1)
@@ -253,7 +255,7 @@ end, { expr = true, silent = true })
 vim.keymap.set("i", "<m-f>", function()
   return vim.fn["codeium#Accept"]()
 end, { expr = true, silent = true })
-vim.keymap.set("i", "<m-q>", function()
+vim.keymap.set("i", "<m-x>", function()
   return vim.fn["codeium#Clear"]()
 end, { expr = true, silent = true })
 
