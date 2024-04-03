@@ -82,17 +82,17 @@ require("lualine").setup({
   },
 })
 
-require("dap-go").setup({
-  dap_configurations = {
-    {
-      type = "go",
-      name = "Attach remote",
-      mode = "remote",
-      request = "launch",
-      program = ".",
-    },
-  },
-})
+-- require("dap-go").setup({
+--   dap_configurations = {
+--     {
+--       type = "go",
+--       name = "Attach remote",
+--       mode = "remote",
+--       request = "launch",
+--       program = ".",
+--     },
+--   },
+-- })
 
 vim.o.cursorline = false
 vim.api.nvim_exec([[ hi LineNr guifg=#aaaaaa]], false)
