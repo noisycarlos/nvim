@@ -243,7 +243,16 @@ vim.api.nvim_set_keymap(
 
 ---- Codeium
 -- vim.keymap.set("", "<leader>u.", "<cmd>CodeiumToggle<cr>", { noremap = true, desc = "Toggle Codeium" })
-vim.keymap.set("", "<m-q>", "<cmd>CodeiumToggle<cr>", { noremap = true, desc = "Toggle Codeium" })
+vim.keymap.set("", "<leader>cgg", ":ChatGPT<CR>", { noremap = true, desc = "ChatGPT" })
+vim.keymap.set(
+  "",
+  "<leader>cgt",
+  ":ChatGPTEditWithInstructions<CR>",
+  { noremap = true, desc = "Edit with Insctructions" }
+)
+vim.keymap.set("", "<leader>cgr", ":ChatGPTRun ", { noremap = true, desc = "GPT Run" })
+
+vim.keymap.set("", "<m-b>", "<cmd>CodeiumToggle<cr>", { noremap = true, desc = "Toggle Codeium" })
 
 vim.keymap.set("i", "<m-p>", function()
   return vim.fn["codeium#CycleCompletions"](1)
@@ -305,6 +314,7 @@ vim.keymap.set("", ",n", function()
 end, { noremap = true, desc = "Go to harpoon file 9" })
 
 -- File Operrations
+
 vim.keymap.set("", "<leader>fo", ":Oil<CR>", { noremap = true, desc = "Oil" })
 vim.keymap.set("", "<leader>e", ":Neotree toggle reveal_force_cwd left<CR>", { noremap = true, desc = "Neotree" })
 vim.keymap.set(
