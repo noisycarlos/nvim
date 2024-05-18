@@ -7,7 +7,12 @@ return {
     "folke/trouble.nvim",
     "nvim-telescope/telescope.nvim",
   },
+
   config = function()
-    require("chatgpt").setup({})
+    require("chatgpt").setup({
+      openai_params = {
+        model = "gpt-4o",
+      },
+    })
   end,
 }
